@@ -1,5 +1,5 @@
 {
-    "name": "VilniusTechnology/bootstrap-menu-builder",
+    "name": "vilnius-technology/bootstrap-menu-builder",
     "description": "This is an OOP way to build bootstrap menu, with nested sub-menus.",
     "keywords": ["bootstrap", "oop", "php"],
     "license": "MIT",

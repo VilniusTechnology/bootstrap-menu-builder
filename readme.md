@@ -1,4 +1,5 @@
 ![alt tag](https://travis-ci.org/VilniusTechnology/bootstrap-menu-builder.svg)
+![alt tag](https://scrutinizer-ci.com/g/VilniusTechnology/bootstrap-menu-builder/badges/quality-score.png?b=master)
 
 # Bootstrap menu builder
 

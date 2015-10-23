@@ -7,6 +7,8 @@ before_script:
 script:
   - vendor/bin/phpunit
   - rm -v ./vendor/autoload.php ./vendor/composer/!(installed.json)
+after_script:
+  - vendor/bin/coveralls
 cache:
   directories:
     - vendor/

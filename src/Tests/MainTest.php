@@ -20,7 +20,9 @@ class MainTest extends \PHPUnit_Framework_TestCase
         $text = new EntryObject('id1', 'parent1', 'Url1_', 'Title 1');
         $text2 = new EntryObject('id2', 'parent2', 'Url2_', 'Title 2' );
 
-        $list = new MenuListObject('Menu List', [$text2, $text]);
+        $listA = new MenuListObject('Menu List A', [$text2, $text]);
+
+        $list = new MenuListObject('Menu List', [$text2, $listA, $text]);
 
         $contents = [
                 $text,
@@ -30,7 +32,7 @@ class MainTest extends \PHPUnit_Framework_TestCase
 
         $menu = $mbc->buildMenu($contents);
 
-        $resultString = '<ul><li><a href="Url1_">Title 1</a></li><li><a href="">Menu List</a><ul><li><a href="Url2_">Title 2</a></li><li><a href="Url1_">Title 1</a></li></ul></li><li><a href="Url2_">Title 2</a></li></ul>
+        $resultString = '<ul><li><a href="Url1_">Title 1</a></li><li><a href="">Menu List</a><ul><li><a href="Url2_">Title 2</a></li><li><a href="">Menu List A</a><ul><li><a href="Url2_">Title 2</a></li><li><a href="Url1_">Title 1</a></li></ul></li><li><a href="Url1_">Title 1</a></li></ul></li><li><a href="Url2_">Title 2</a></li></ul>
 ';
 
         $this->assertEquals($resultString, $menu, 'Menu results');

@@ -16,6 +16,9 @@ namespace VilniusTechnology\BootstrapMenuBuilder;
  */
 class BootstrapMenuBuilder
 {
+    const SUB_MENU = 'sub-menu';
+    const MENU = 'menu';
+
     /** @var \DOMDocument $dom */
     public $dom;
 
@@ -46,13 +49,10 @@ class BootstrapMenuBuilder
     private function createMenu($contents)
     {
         $ul  = $this->dom->createElement('ul');
-        if ($this->decorate) {
-            $class = $this->dom->createAttribute('class');
-            $class->value = 'dropdown-menu';
-            $ul->appendChild($class);
-        }
+        $this->addMenuClass($ul, self::MENU);
 
         foreach($contents as $item) {
+            $element = null;
             if ($item instanceof MenuListObject) {
                 $element = $this->createSubMenu($item);
             }
@@ -68,18 +68,14 @@ class BootstrapMenuBuilder
     }
 
     /**
-     * @param MenuListObject $contents
+     * @param MenuListObject|array $contents
      *
      * @return \DOMNode
      */
     private function createSubMenu($contents)
     {
         $li  = $this->dom->createElement('li');
-        if ($this->decorate) {
-            $class = $this->dom->createAttribute('class');
-            $class->value = 'dropdown-submenu';
-            $li->appendChild($class);
-        }
+        $this->addMenuClass($li, self::SUB_MENU);
 
         $title = new EntryObject('', '', $contents->href, $contents->title);
 
@@ -94,7 +90,6 @@ class BootstrapMenuBuilder
             return $li;
         }
 
-        // Add menu, that will act as container.
         foreach ($contents as $item) {
             if (is_array($item)) {
                 $element = $this->createMenu($item);
@@ -116,18 +111,12 @@ class BootstrapMenuBuilder
     }
 
     /**
-     * Create ROOT element
+     * Create ROOT element.
      */
-    private function createRoot()
+    public function createRoot()
     {
         $ul  = $this->dom->createElement('ul');
-
-        if ($this->decorate) {
-            $class = $this->dom->createAttribute('class');
-            $class->value = 'dropdown-menu';
-        }
-
-        $ul->appendChild($class);
+        $this->addMenuClass($ul, self::MENU);
         $newNode = $this->dom->appendChild($ul);
 
         return $newNode;
@@ -136,7 +125,8 @@ class BootstrapMenuBuilder
     /**
      * Create simple <li> entry.
      *
-     * @param $item
+     * @param EntryObject $item
+     *
      * @return \DOMElement
      */
     private function createEntry($item)
@@ -150,7 +140,8 @@ class BootstrapMenuBuilder
     /**
      * Create link <a>.
      *
-     * @param $item
+     * @param EntryObject $item
+     *
      * @return \DOMElement
      */
     private function createLink($item)
@@ -161,5 +152,30 @@ class BootstrapMenuBuilder
         $aElement->appendChild($hrefAttribute);
 
         return $aElement;
+    }
+
+    /**
+     * Adds class that represents menu element.
+     *
+     * @param \DOMElement $obj
+     * @param string $type
+     *
+     * @return boolean|null
+     */
+    private function addMenuClass($obj, $type)
+    {
+        if ($this->decorate) {
+            $class = $this->dom->createAttribute('class');
+
+            if($type == self::SUB_MENU) {
+                $class->value = 'dropdown-submenu';
+            } else {
+                $class->value = 'dropdown-menu';
+            }
+
+            $obj->appendChild($class);
+
+            return true;
+        }
     }
 }

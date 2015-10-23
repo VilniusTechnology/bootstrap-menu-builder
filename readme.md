@@ -6,7 +6,7 @@
 
 ## Installation
 
-`composer require [ ... ] `
+` composer require vilnius-technology/bootstrap-menu-builder `
 
 ## Usage example for Laravel
 
@@ -86,6 +86,8 @@
 
     `$bmb = new BootstrapMenuBuilder(true);`
     
+    `$bmb->createRoot();`
+    
 ### Sub menu 
 
 Is represented by class: `MenuListObject()`.
@@ -95,3 +97,4 @@ It accepts params:
 ### Menu entry
 Is represented by `EntryObject()`.
 It accepts params:
+

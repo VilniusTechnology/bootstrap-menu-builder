@@ -5,7 +5,7 @@ imports:
 #      timeout: 600
 filter:
   excluded_paths:
-    - Tests/*
+    - src/Tests/*
 checks:
     php:
         code_rating: true

@@ -2,7 +2,7 @@
 
 /*
  * Created by PhpStorm.
- * User: lukasm - vilnius.technology
+ * User: Lukas Mikelionis - http://vilnius.technology
  * Date: 15.5.1
  * Time: 18.55
  */
@@ -43,7 +43,7 @@ class BootstrapMenuBuilder
      *
      * @return \DOMNode
      */
-    public function createMenu($contents)
+    private function createMenu($contents)
     {
         $ul  = $this->dom->createElement('ul');
         if ($this->decorate) {
@@ -72,7 +72,7 @@ class BootstrapMenuBuilder
      *
      * @return \DOMNode
      */
-    public function createSubMenu($contents)
+    private function createSubMenu($contents)
     {
         $li  = $this->dom->createElement('li');
         if ($this->decorate) {
@@ -118,7 +118,7 @@ class BootstrapMenuBuilder
     /**
      * Create ROOT element
      */
-    public function createRoot()
+    private function createRoot()
     {
         $ul  = $this->dom->createElement('ul');
 
@@ -139,7 +139,7 @@ class BootstrapMenuBuilder
      * @param $item
      * @return \DOMElement
      */
-    public function createEntry($item)
+    private function createEntry($item)
     {
         $li  = $this->dom->createElement('li');
         $li->appendChild($this->createLink($item));
@@ -153,7 +153,7 @@ class BootstrapMenuBuilder
      * @param $item
      * @return \DOMElement
      */
-    public function createLink($item)
+    private function createLink($item)
     {
         $aElement = $this->dom->createElement('a', $item->title);
         $hrefAttribute = $this->dom->createAttribute('href');
@@ -161,39 +161,5 @@ class BootstrapMenuBuilder
         $aElement->appendChild($hrefAttribute);
 
         return $aElement;
-    }
-
-    /**
-     *  Test method.
-     *
-     * @param $contents
-     * @return string
-     */
-    public function testBuild($contents)
-    {
-        $this->dom = new \DOMDocument();
-
-        $text = new EntryObject('id1', 'parent1', 'Url1_', 'Title 1');
-        $text2 = new EntryObject('id2', 'parent2', 'Url2_', 'Title 2' );
-
-
-//        $list = new MenuListObject('LIST', [$text2]);
-        $list = new MenuListObject('Menu List', [$text2, $text]);
-
-//        $contents = [
-//                $text,
-//                $list,
-//                $text2,
-//        ];
-
-        $menu = $this->createMenu($contents);
-
-        $this->dom->appendChild($menu);
-        $result = $this->dom->saveXML();
-
-//        echo $result;
-//        exit;
-
-        return $result;
     }
 }

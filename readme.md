@@ -1,4 +1,7 @@
-# Laravel
+![alt tag](https://travis-ci.org/VilniusTechnology/bootstrap-menu-builder.svg)
+
+# Bootstrap menu builder
+
 
 ## Installation
 

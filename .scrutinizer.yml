@@ -1,8 +1,8 @@
 imports:
   - php
-tools:
-  external_code_coverage:
-      timeout: 600
+#tools:
+#  external_code_coverage:
+#      timeout: 600
 filter:
   excluded_paths:
     - Tests/*

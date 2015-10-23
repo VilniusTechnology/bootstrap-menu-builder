@@ -5,8 +5,11 @@ namespace VilniusTechnology\BootstrapMenuBuilder;
 class EntryObject {
 
     public $id;
+
     public $parent;
+
     public $href;
+
     public $title;
 
 

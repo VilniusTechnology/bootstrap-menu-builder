@@ -1,7 +1,7 @@
 {
     "name": "vilnius-technology/bootstrap-menu-builder",
     "description": "This is an OOP way to build bootstrap menu, with nested sub-menus.",
-    "keywords": ["bootstrap", "oop", "php"],
+    "keywords": ["bootstrap", "oop", "php", "laravel", "symfony"],
     "license": "MIT",
     "type": "project",
     "require-dev": {

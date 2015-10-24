@@ -82,6 +82,87 @@
     }
 ```
 
+### CSS
+If You are using older bootstrap versions, You migh need to add this CSS:
+```css
+    div.collapse {
+        overflow: visible;
+        font-family: 'Open Sans', sans-serif;
+        text-transform: uppercase;
+    }
+    
+    .dropdown-submenu {
+        position:relative;
+        font-size: 9px;
+        font-weight: normal;
+        line-height: 0.9;
+    }
+    
+    .dropdown .caret {
+        margin-left: 7px;
+    }
+    
+    ul.dropdown-menu {
+        -webkit-border-radius:0;
+        -moz-border-radius:0;
+        border-radius:0;
+    }
+    
+    li.dropdown-submenu a {
+        font-weight: 400;
+    }
+    
+    .dropdown-submenu > .dropdown-menu {
+        top:0;
+        left:100%;
+        margin-top:-6px;
+        margin-left:-1px;
+        -webkit-border-radius:0;
+        -moz-border-radius:0;
+        border-radius:0;
+    }
+    
+    .dropdown-submenu:hover > .dropdown-menu{
+        display:block;
+    }
+    
+    .dropdown-submenu > a:after{
+        display:block;
+        content:" ";
+        float:right;
+        width:0;
+        height:0;
+        border-color:transparent;
+        border-style:solid;
+        border-width:5px 0 5px 5px;
+        border-left-color:#cccccc;
+        margin-top:5px;
+        margin-right:-15px;
+        margin-left: 10px;
+    }
+    
+    .dropdown-submenu:hover > a:after{
+        border-left-color:#ffffff;
+    }
+    
+    .dropdown-submenu .pull-left{
+        float:none;
+    }
+    
+    .dropdown-submenu.pull-left > .dropdown-menu{
+        left:-100%;
+        margin-left:10px;
+        -webkit-border-radius:6px 0 6px 6px;
+        -moz-border-radius:6px 0 6px 6px;
+        border-radius:6px 0 6px 6px;
+    }
+    
+    .root:hover > .dropdown-menu{
+        display: block;
+    }
+```
+
+
 ## API
 
     `$bmb = new BootstrapMenuBuilder(true);`

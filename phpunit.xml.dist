@@ -13,10 +13,7 @@
 
     <testsuites>
         <testsuite name="Functional">
-            <directory>./src/Tests/</directory>
-        </testsuite>
-        <testsuite name="All">
-            <directory>./Tests/</directory>
+            <directory>./src/Tests</directory>
         </testsuite>
     </testsuites>
 
@@ -24,7 +21,7 @@
         <whitelist>
             <directory>./</directory>
             <exclude>
-                <directory>./Tests</directory>
+                <directory>./src/Tests</directory>
                 <directory>./vendor</directory>
             </exclude>
         </whitelist>

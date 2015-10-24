@@ -5,6 +5,7 @@ namespace VilniusTechnology\BootstrapMenuBuilder\Tests;
 use VilniusTechnology\BootstrapMenuBuilder\BootstrapMenuBuilder;
 use VilniusTechnology\BootstrapMenuBuilder\EntryObject;
 use VilniusTechnology\BootstrapMenuBuilder\MenuListObject;
+use VilniusTechnology\BootstrapMenuBuilder\TreeBuilder;
 
 class MainTest extends \PHPUnit_Framework_TestCase
 {
@@ -37,4 +38,28 @@ class MainTest extends \PHPUnit_Framework_TestCase
 
         $this->assertEquals($resultString, $menu, 'Menu results');
     }
+
+    public function testTreeBuilder()
+    {
+        $result = [
+            0 => [
+                'id' => 1,
+                'parent_id' => 0,
+                'children' => [
+                    0 => [
+                        'parent_id' => 1,
+                        'id' => 2,
+                    ],
+                ],
+            ],
+        ];
+
+        $array = [
+            ['id' => 1, 'parent_id' => 0],
+            ['id' => 2, 'parent_id' => 1],
+        ];
+
+        $this->assertEquals(TreeBuilder::buildTree($array), $result, 'Tree Menu results');
+    }
+
 }

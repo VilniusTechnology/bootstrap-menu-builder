@@ -178,4 +178,3 @@ It accepts params:
 ### Menu entry
 Is represented by `EntryObject()`.
 It accepts params:
-

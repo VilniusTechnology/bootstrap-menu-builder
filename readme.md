@@ -6,7 +6,7 @@
 
 ## Installation
 
-` composer require vilnius-technology/bootstrap-menu-builder `
+` composer require vilnius-technology/bootstrap-menu-builder dev-master`
 
 ## Usage example for Laravel
 
